@@ -6,5 +6,6 @@ export const findQuizzesByPartialName = (courseId, partialName) => {
     return model.find({
         course: courseId,
         title: { $regex: regex } ,
-    });
-}
+    });};
+export function deleteQuiz(quizId) {
+    return model.deleteOne({ _id: quizId }); }
