@@ -5,9 +5,9 @@ const quizSchema = new mongoose.Schema(
         title: String,
         course: { type: String, ref: "CourseModel" },
         points: Number,
-        start_date: Date, 
-        end_date: Date,
-        due_date: Date,
+        start_date: String, 
+        end_date: String,
+        due_date: String,
         questions: Number,
     },
     { collection: "quizzes" }
