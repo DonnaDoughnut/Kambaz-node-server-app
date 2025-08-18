@@ -21,4 +21,4 @@ export default function AssignmentRoutes(app) {
         assignmentsDao.deleteAssignment(assignmentId);
         res.sendStatus(200);
       });
-}
+} 

@@ -21,4 +21,4 @@ export function updateAssignment(assignmentId, assignmentUpdates) {
     const assignment = assignments.find((assignment) => assignment._id === assignmentId);
     Object.assign(assignment, assignmentUpdates);
     return assignment;
-}
+} 
