@@ -8,4 +8,7 @@ export const findQuizzesByPartialName = (courseId, partialName) => {
         title: { $regex: regex } ,
     });};
 export function deleteQuiz(quizId) {
-    return model.deleteOne({ _id: quizId }); }
+    return model.deleteOne({ _id: quizId }); };
+export function createQuiz(quiz) {
+    const newQuiz = { ...quiz, _id: uuid4() };
+    return model.create(newQuiz); };
