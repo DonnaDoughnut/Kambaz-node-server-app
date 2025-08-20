@@ -1,4 +1,5 @@
 import model from "./model.js";
+import { v4 as uuidv4 } from "uuid";
 export function findQuizzesForCourse(courseId) {
     return model.find({ course: courseId }); }
 export const findQuizzesByPartialName = (courseId, partialName) => {
@@ -7,7 +8,9 @@ export const findQuizzesByPartialName = (courseId, partialName) => {
         course: courseId,
         title: { $regex: regex } ,
     });};
+export const findQuizById = (quizId) => model.findById(quizId);
 export function createQuiz(quiz) {
-    return model.create(quiz); };
+    const newQuiz = { ...quiz, _id: uuidv4() };
+    return model.create(newQuiz); }
 export function deleteQuiz(quizId) {
-    return model.deleteOne({ _id: quizId }); };
+    return model.deleteOne({ _id: quizId }); }; 
