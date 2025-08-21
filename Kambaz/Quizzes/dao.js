@@ -11,6 +11,6 @@ export const findQuizzesByPartialName = (courseId, partialName) => {
 export const findQuizById = (quizId) => model.findById(quizId);
 export function createQuiz(quiz) {
     const newQuiz = { ...quiz, _id: uuidv4() };
-    return model.create(newQuiz); }
-export function deleteQuiz(quizId) {
-    return model.deleteOne({ _id: quizId }); }; 
+    return model.create(newQuiz); };
+export function updateQuiz(quizId, quiz) { return model.updateOne({ _id: quizId }, { $set: quiz }); };
+export function deleteQuiz(quizId) { return model.deleteOne({ _id: quizId }); }; 

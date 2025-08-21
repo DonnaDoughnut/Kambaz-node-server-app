@@ -81,7 +81,8 @@ export default function CourseRoutes(app) {
         const newQuiz = await quizzesDao.createQuiz(quiz);
         res.send(newQuiz);
     });
-    app.get("api/courses/:courseId/quizzes/:quizId", async (req, res) => {
-        const quiz = await dao.findQuizById(req.params.quizId);
+    app.get("/api/courses/:courseId/quizzes/:quizId", async (req, res) => {
+        const quiz = await quizzesDao.findQuizById(req.params.quizId);
+        console.log("What the heck: ", req.params.quizId);
         res.json(quiz); });
 }
