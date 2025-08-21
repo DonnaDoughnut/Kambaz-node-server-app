@@ -10,7 +10,7 @@ import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import QuizRoutes from "./Kambaz/Quizzes/routes.js";
-import QuestionsRoutes from './Kambaz/QuizzesQuestions/routes.js';
+import QuestionsRoutes from "./Kambaz/QuizzesQuestions/routes.js";
 
 import mongoose from "mongoose";
 mongoose.set("debug", true);
