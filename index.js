@@ -10,9 +10,9 @@ import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import QuizRoutes from "./Kambaz/Quizzes/routes.js";
+import QuestionsRoutes from './Kambaz/QuizzesQuestions/routes.js';
 
 import mongoose from "mongoose";
-import QuestionsRoutes from './Kambaz/QuizzesQuestions/routes.js';
 mongoose.set("debug", true);
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
 mongoose.connect(CONNECTION_STRING);
@@ -30,8 +30,8 @@ const sessionOptions = {
 if (process.env.NODE_ENV !== "development") {
     sessionOptions.proxy = true;
     sessionOptions.cookie = {
-        sameSite: "lax",
-        secure: false,
+        sameSite: "none",
+        secure: true,
         domain: process.env.NODE_SERVER_DOMAIN,
 }};
     
