@@ -8,6 +8,7 @@ const questionSchema = new mongoose.Schema(
                 enum: ["Multiple Choice", "True/False", "Fill in the Blank"], default: "Multiple Choice" },
         published: {type: Boolean, default: false},
         quiz: { type: String, ref: "QuizModel" },
+        answers: {type: [String], default: ["", ""],}
 
     },
     { timestamps: true }
