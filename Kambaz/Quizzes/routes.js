@@ -10,7 +10,7 @@ export default function QuizRoutes(app) {
         const { quizId } = req.params;
         const status = await quizzesDao.deleteQuiz(quizId);
         res.send(status); });
-    app.post("/api/quizzes/:quizId/questions", async (req, res) => {
+    app.post("/api/quizzes/:quizId/questions/:questionId", async (req, res) => {
         const { quizId } = req.params;
         const question = { ...req.body, quiz: quizId };
         const newQuestion = await quizzesQuestionsDao.createQuestion(question);
@@ -20,7 +20,8 @@ export default function QuizRoutes(app) {
         const questions = await quizzesQuestionsDao.findQuestionsForQuiz(quizId);
         res.json(questions); });
     app.get("/api/quizzes/:quizId/questions/:questionId", async (req, res) => {
-            const question = await quizzesQuestionsDao.findQuestionById(req.params.questionId);
-            res.json(question); });
-
+        const { questionId } = req.params;
+        const status = await quizzesQuestionsDao.findQuestionById(questionId);
+        res.json(status); });
+    
 } 
